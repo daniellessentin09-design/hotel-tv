@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Hotel TV</title>
+
+<style>
+
+html, body {
+    width:100%;
+    height:100%;
+    margin:0;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+    color:white;
+}
+
+
+body {
+
+background:
+linear-gradient(
+rgba(0,0,0,0.55),
+rgba(0,0,0,0.75)
+),
+url("hotel.jpg");
+
+background-size:cover;
+background-position:center;
+
+}
+
+
+/* Kopfbereich */
+
+.header {
+
+height:120px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 70px;
+
+}
+
+
+.logo {
+
+font-size:45px;
+font-weight:bold;
+
+}
+
+
+.clock {
+
+font-size:40px;
+
+}
+
+
+/* Seiten */
+
+.page {
+
+display:none;
+height:calc(100vh - 120px);
+text-align:center;
+
+}
+
+
+.active {
+
+display:block;
+
+}
+
+
+h1 {
+
+font-size:80px;
+margin:40px 0 10px;
+
+}
+
+
+.subtitle {
+
+font-size:40px;
+
+}
+
+
+/* Menü */
+
+.menu {
+
+display:grid;
+grid-template-columns:repeat(3, 300px);
+gap:35px;
+
+justify-content:center;
+margin-top:80px;
+
+}
+
+
+.button {
+
+height:160px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:rgba(255,255,255,0.18);
+
+border:3px solid white;
+
+border-radius:25px;
+
+font-size:35px;
+
+}
+
+
+/* Unterseiten */
+
+.text {
+
+font-size:45px;
+line-height:1.8;
+
+}
+
+
+.back {
+
+margin-top:50px;
+
+font-size:35px;
+
+padding:25px 70px;
+
+border-radius:20px;
+
+}
+
+
+</style>
+
+
+<script>
+
+
+function show(page){
+
+document.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
+
+document.getElementById(page)
+.classList.add("active");
+
+}
+
+
+
+function clock(){
+
+let d=new Date();
+
+document.getElementById("time")
+.innerHTML=d.toLocaleTimeString();
+
+}
+
+setInterval(clock,1000);
+
+
+</script>
+
+
+</head>
+
+
+<body>
+
+
+<div class="header">
+
+<div class="logo">
+🏨 Hotel Gesa
+</div>
+
+<div class="clock" id="time"></div>
+
+</div>
+
+
+
+<div id="home" class="page active">
+
+
+<h1>Willkommen Gesa</h1>
+
+<div class="subtitle">
+Schön, dass Sie bei uns sind
+</div>
+
+
+<div class="menu">
+
+
+<div class="button" onclick="show('preise')">
+💶 Preise
+</div>
+
+
+<div class="button" onclick="show('kontakt')">
+📞 Kontakt
+</div>
+
+
+<div class="button" onclick="show('wlan')">
+📶 WLAN
+</div>
+
+
+<div class="button" onclick="show('info')">
+ℹ Infos
+</div>
+
+
+<div class="button">
+🎬 Videos
+</div>
+
+
+<div class="button">
+🗺 Umgebung
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div id="preise" class="page">
+
+<h1>💶 Preise</h1>
+
+<div class="text">
+
+Frühstück: 12 €<br>
+Parkplatz: 5 € / Tag<br>
+Late Check-out: 20 €
+
+</div>
+
+
+<button class="back" onclick="show('home')">
+⬅ Zurück
+</button>
+
+</div>
+
+
+
+<div id="kontakt" class="page">
+
+<h1>📞 Kontakte</h1>
+
+<div class="text">
+
+Rezeption<br>
+01234 56789<br><br>
+
+Notruf<br>
+112
+
+</div>
+
+
+<button class="back" onclick="show('home')">
+⬅ Zurück
+</button>
+
+</div>
+
+
+
+<div id="wlan" class="page">
+
+<h1>📶 WLAN</h1>
+
+<div class="text">
+
+Netzwerk:<br>
+Hotel-Gast<br><br>
+
+Passwort:<br>
+Willkommen2026
+
+</div>
+
+
+<button class="back" onclick="show('home')">
+⬅ Zurück
+</button>
+
+</div>
+
+
+
+<div id="info" class="page">
+
+<h1>ℹ Informationen</h1>
+
+<div class="text">
+
+Check-in 15:00 Uhr<br>
+Check-out 11:00 Uhr<br>
+Ruhezeit 22:00 - 07:00 Uhr
+
+</div>
+
+
+<button class="back" onclick="show('home')">
+⬅ Zurück
+</button>
+
+</div>
+
+
+
+</body>
+</html>
